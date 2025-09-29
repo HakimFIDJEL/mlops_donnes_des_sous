@@ -39,6 +39,7 @@ jobs:
           source .venv/bin/activate
           uv run pytest -q --cov=donnes_des_sous --cov-report=term-missing --cov-report=lcov
           uv build
+          uv publish --token "${{ secrets.PIP_TOKEN }}"
       - name: Upload distributions
         uses: actions/upload-artifact@v4
         with:
